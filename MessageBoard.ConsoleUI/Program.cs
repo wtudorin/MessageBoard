@@ -13,6 +13,10 @@ namespace MessageBoard.ConsoleUI
 			{
 				Console.Write("Command > ");
 				var commandLine = Console.ReadLine();
+				if (commandLine.ToLower().Trim().Equals("exit"))
+				{
+					return;
+				}
 				commandParser.ClearCommands();
 				commandParser.AddCommand(new PostMessageCommand());
 				commandParser.AddCommand(new SubscribeCommand());
