@@ -8,7 +8,10 @@ namespace MessageBoard.ConsoleUI.Command
 {
 	public interface ICommand
 	{
+
 		bool Match();
+
+		void SetCommandLine(string commandLine);
 
 		List<string> Execute();
 	}

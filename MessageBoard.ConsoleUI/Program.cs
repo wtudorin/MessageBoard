@@ -15,14 +15,24 @@ namespace MessageBoard.ConsoleUI
 				var commandLine = Console.ReadLine();
 				commandParser.ClearCommands();
 				commandParser.AddCommand(new PostMessageCommand());
+				commandParser.AddCommand(new SubscribeCommand());
+				commandParser.AddCommand(new ReadCommand());
+				commandParser.AddCommand(new WallCommand());
 				var command = commandParser.Parse(commandLine);
 
 				List<string> resultList = null;
 
 				if (command != null)
 				{
+					ConsoleLogger.Log($"Detected command: {command.GetType().Name}");
 					resultList = command.Execute();
+					ConsoleLogger.Log(resultList);
 				}
+				else
+				{
+					ConsoleLogger.Log("No command was detected!");
+				}
+
 			}
 		}
 	}

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace MessageBoard.ConsoleUI.Command
 {
@@ -21,6 +20,8 @@ namespace MessageBoard.ConsoleUI.Command
 		{
 			foreach (ICommand command in _commands)
 			{
+				command.SetCommandLine(commandLine);
+
 				if (command.Match())
 				{
 					return command;
