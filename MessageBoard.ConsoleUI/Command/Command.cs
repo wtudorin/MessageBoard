@@ -23,5 +23,10 @@ namespace MessageBoard.ConsoleUI.Command
 		public abstract List<string> Execute();
 
 		public abstract bool Match();
+
+		public void SetCommandLine(string commandLine)
+		{
+			this._commandLine = commandLine;
+		}
 	}
 }
